@@ -33,7 +33,8 @@ async function createNewMeetingAsync(userId) {
     ensureGraphForAppOnlyAuth();
     let startTime = await startDateTimeAsync();
     //let endTime = await endDateTimeAsync();
-    let endTime = new Date(startTime + (10*60*1000)); // Add 10 mins * 60 sec * 1000 msec
+    var current_ms = new Date().getTime();
+    let endTime = new Date(current_ms + (10*60*1000)); // Add 10 mins * 60 sec * 1000 msec
     const newMeeting = `/users/${userId}/calendar/events`;
     
     const event = {
