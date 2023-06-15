@@ -32,8 +32,8 @@ function ensureGraphForAppOnlyAuth() {
 async function createNewMeetingAsync(userId) {
     ensureGraphForAppOnlyAuth();
     let startTime = await startDateTimeAsync();
-    let endTime = await endDateTimeAsync();
-    //let endTime = startTime + (10*60*1000); // Add 10 mins * 60 sec * 1000 msec
+    //let endTime = await endDateTimeAsync();
+    let endTime = new Date(startTime + (10*60*1000)); // Add 10 mins * 60 sec * 1000 msec
     const newMeeting = `/users/${userId}/calendar/events`;
     
     const event = {
