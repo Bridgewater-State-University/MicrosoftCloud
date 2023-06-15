@@ -76,7 +76,7 @@ const App = () => {
   if (message) {
     return <div>{message}</div>;
   }
-  return <div>Initializing ...</div>;
+  return <div>Initializing a 10 minute meeting ...</div>;
 };
 
 export default App;
