@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.acs-wrapper {
+.acs-wrapper, .wrapper {
   width: 95%;
   text-align: center;
 }
