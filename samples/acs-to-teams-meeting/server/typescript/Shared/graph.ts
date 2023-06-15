@@ -1,4 +1,4 @@
-import { startDateTimeAsync, endDateTimeAsync } from './dateTimeFormat';
+//import { startDateTimeAsync, endDateTimeAsync } from './dateTimeFormat';
 import { ClientSecretCredential } from '@azure/identity';
 import { Client } from '@microsoft/microsoft-graph-client';
 import { TokenCredentialAuthenticationProvider } from '@microsoft/microsoft-graph-client/authProviders/azureTokenCredentials';
@@ -31,9 +31,10 @@ function ensureGraphForAppOnlyAuth() {
 
 async function createNewMeetingAsync(userId) {
     ensureGraphForAppOnlyAuth();
-    let startTime = await startDateTimeAsync();
+    //let startTime = await startDateTimeAsync();
     //let endTime = await endDateTimeAsync();
     var current_ms = new Date().getTime();
+    let startTime = new Date(current_ms);
     let endTime = new Date(current_ms + (10*60*1000)); // Add 10 mins * 60 sec * 1000 msec
     const newMeeting = `/users/${userId}/calendar/events`;
     
