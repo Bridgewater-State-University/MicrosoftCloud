@@ -47,13 +47,13 @@ const App = () => {
 
       setMessage('Getting Teams meeting link...');
       //Call Azure Function to get the meeting link
-      console.log('Teams Function', process.env.REACT_APP_TEAMS_MEETING_FUNCTION);
+      //console.log('Teams Function', process.env.REACT_APP_TEAMS_MEETING_FUNCTION);
       const resTeams = await fetch(process.env.REACT_APP_TEAMS_MEETING_FUNCTION as string);
-      console.log('ResTeams', resTeams);
+      //console.log('ResTeams', resTeams);
       const link = await resTeams.text();
       setTeamsMeetingLink(link);
       setMessage('');
-      console.log('Teams meeting link', link);
+      //console.log('Teams meeting link', link);
     }
     init();
   }, []);
@@ -71,12 +71,12 @@ const App = () => {
     );
   }
   if (!credential) {
-    return <>Failed to construct credential. Provided token is malformed.</>;
+    return <div>Creating a new calling credential ...</div>;
   }
   if (message) {
     return <div>{message}</div>;
   }
-  return <div>Initializing...</div>;
+  return <div>Initializing ...</div>;
 };
 
 export default App;

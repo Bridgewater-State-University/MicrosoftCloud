@@ -1,6 +1,7 @@
-.wrapper {
+.acs-wrapper {
     margin: 0 auto;
-    height: 90vh;
+    /*height: 90vh;*/
+    height: auto;
     width: 90vw;
 }
 
