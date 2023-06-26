@@ -16,7 +16,7 @@
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@azure/functions": "^3.5.0",
+    "@azure/functions": "^3.5.1",
     "@types/node": "16.x",
     "typescript": "^4.9.5"
   }

@@ -21,6 +21,7 @@ function ensureGraphForAppOnlyAuth() {
     const authProvider = new TokenCredentialAuthenticationProvider(
       clientSecretCredential, {
         scopes: [ 'https://graph.microsoft.com/.default' ]
+        //scopes: [ 'https://graph.microsoft.com/v1.0' ]
       });
 
     appGraphClient = Client.initWithMiddleware({
@@ -29,17 +30,18 @@ function ensureGraphForAppOnlyAuth() {
   }
 }
 
-async function createNewMeetingAsync(userId) {
+async function createNewMeetingAsync(objectId, displayName) {
     ensureGraphForAppOnlyAuth();
     //let startTime = await startDateTimeAsync();
     //let endTime = await endDateTimeAsync();
     var current_ms = new Date().getTime();
     let startTime = new Date(current_ms);
     let endTime = new Date(current_ms + (10*60*1000)); // Add 10 mins * 60 sec * 1000 msec
-    const newMeeting = `/users/${userId}/calendar/events`;
-    
+    //const newMeeting = `/groups/${objectId}/calendar/events`;
+    const newMeeting = `/users/${objectId}/calendar/events`;
+
     const event = {
-      subject: 'Customer Service Meeting',
+      subject: 'Support Meeting: '+displayName,
       start: {
           dateTime: startTime,
           timeZone: 'UTC'
@@ -51,7 +53,7 @@ async function createNewMeetingAsync(userId) {
       isOnlineMeeting: true
     };
     
-    const newEvent = await appGraphClient.api(newMeeting).post(event);    
+    const newEvent = await appGraphClient.api(newMeeting).post(event);
     return newEvent;     
 }
       
